@@ -15,8 +15,8 @@ matrix:
 before_install:
   - pushd .
   - travis_retry sudo apt-get update -qq
-  - if [[ $TRAVIS_PYTHON_VERSION != 'pypy' ] ; then travis_retry pip install --install-option="--prefix=~/virtualenv/python$TRAVIS_PYTHON_VERSION" Cython fi
-  - if [[ $TRAVIS_PYTHON_VERSION == 'pypy' ] ; then travis_retry pip install --install-option="--prefix=~/virtualenv/$TRAVIS_PYTHON_VERSION" Cython fi
+  - if [[ $TRAVIS_PYTHON_VERSION != 'pypy' ]] ; then travis_retry pip install --install-option="--prefix=~/virtualenv/python$TRAVIS_PYTHON_VERSION" Cython fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 'pypy' ]] ; then travis_retry pip install --install-option="--prefix=~/virtualenv/$TRAVIS_PYTHON_VERSION" Cython fi
   - travis_retry sudo apt-get install -y curl erlang python-dev
   - travis_retry git clone https://github.com/discoproject/disco.git /tmp/disco
   - cd /tmp/disco && git checkout develop && sudo make install
